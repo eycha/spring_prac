@@ -1,9 +1,6 @@
 package com.example.hello.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/get")
@@ -16,6 +13,13 @@ public class GetApiController {
     @RequestMapping(path="/hi", method= RequestMethod.GET) //get/post/put/delete -> get http://localhost:9090/api/get/hi
     public String hi() {
         return "hi";
+
+    }
+    //http://localhost:9090/api/get/path-variable/{name}
+    @GetMapping("/path-variable/{name}")
+    public String pathVariable(@PathVariable(name="name") String pathName) {
+        System.out.println("PathVariable:" + pathName);
+        return pathName;
 
     }
 }
