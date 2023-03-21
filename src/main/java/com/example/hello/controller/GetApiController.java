@@ -25,7 +25,7 @@ public class GetApiController {
 
     }
     @GetMapping(path="query-param")
-    public String queryParam(Map<String, String> queryParam) {
+    public String queryParam(@RequestParam Map<String, String> queryParam) {
         StringBuilder sb = new StringBuilder();
 
         queryParam.entrySet().forEach(entry-> {
